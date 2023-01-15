@@ -1,2 +1,12 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<% @books.each do |book| %>
+<div>
+  <%= image_tag 'sample-author1.jpg' %>
+  
+  <%= link_to book_path(book.id) do %>
+    <%= book.title %>
+  <% end %>
+  <p>Opinion <%= book.body %></p>
+</div>
+<% end %>
+
+<!--詳細画面リンクを＝Titleカラムそのままにしたい-->
