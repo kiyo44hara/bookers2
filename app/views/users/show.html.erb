@@ -1,9 +1,11 @@
 <h2>User info</h2>
 
 <div>
-  <span>name</span><%= image_tag @user.get_profile_image(100,100) %>
-  <h3><%= @user.name %></h3>
-  <h3>introduction</h3>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <h3>name<%= @user.name %></h3>
+  <h3>introduction<%= @user.introduction %></h3>
+  
+  
   <% if @user == current_user %>
     <%= link_to "editほんとは画像おきたい", edit_user_path(@user) %> <!--後で画像でリンクつなげる-->
   <% end %>

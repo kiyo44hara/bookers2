@@ -1,3 +1,13 @@
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
 <h1>New Book</h1>
   <%= form_with model: @book do |f| %>
     <h4>Title</h4>
@@ -8,4 +18,4 @@
       
     <%= f.submit 'Create Book' %>
   <% end %>
-  
+
