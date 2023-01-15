@@ -1,14 +1,5 @@
 <h2>Books</h2>
-<% @books.each do |book| %>
-<div>
-  <%= image_tag book.user.get_profile_image(100,100) %>
-
-  <%= link_to book_path(book.id) do %>
-    <%= book.title %>
-  <% end %>
-  <p>Opinion <%= book.body %></p>
-</div>
-<% end %>
+<%= render 'books/list', books: @books %>
 
 
 <!--マイページに表示される本一覧-->
