@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   def new
     @book = Book.new
   end
-  
+
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
@@ -17,17 +17,19 @@ class BooksController < ApplicationController
   def index
     @book = Book.new
     @books = Book.all #@user.post_images　ユーザー全ての投稿が見れる場所に飛ばす。15章みて
+    @users = User.all
+    @user = current_user
   end
 
   def show
     @book = Book.find(params[:id])
   end
-  
+
   def edit
     is_matching_login_user
     @book = Book.find(params[:id])
   end
-  
+
   def update
     is_matching_login_user
     @book = Book.find(params[:id])
@@ -38,26 +40,26 @@ class BooksController < ApplicationController
       render :edit
     end
   end
-  
+
   def destroy
     is_matching_login_user
     @book = Book.find(params[:id])
     @book.destroy
     redirect_to books_path
   end
-  
+
   private
-  
+
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  
+
   def is_matching_login_user
     user_id = params[:id].to_i
     unless user_id == current_user.id
       redirect_to books_path
     end
   end
-  
-  
+
+
 end
