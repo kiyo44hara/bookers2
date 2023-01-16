@@ -45,20 +45,40 @@
             </div>
           
         <!--ここまでテンプレート-->
-         
-          
+         <div class="col-md-8 offset-md-1">
+          <h2>books</h2>
+          　<table class="table table-hover table-inverse">
+          　 <thead>
+            　 <tr>
+            　    <th></th>
+              　   <th>Title</th>
+              　   <th>Body</th>
+              　   <th colspan="3"></th>
+            　 </tr>
+          　 </thead>
             
-          
-          
+            <% @books.each do |book| %>
+            <thead>
+            <tr>
+              <th>
+                <%= link_to users_path do %>
+                  <%= image_tag book.user.get_profile_image(100,100) %></th>
+                <% end %>
+              <th>
+              <%= link_to book_path(book.id) do %>
+                <%= book.title %>
+              <% end %>
+              </th>
+              <th><%= book.body %></th>
+              <th colspan="3"><!--３つのリンク--></th>
+            </tr>
+            </thead>
+          <% end %>
+
+        
             
           </table>
         </div>
-       
-        
-        
-        
-        
-        
        </div>
       </main>
   </body>
