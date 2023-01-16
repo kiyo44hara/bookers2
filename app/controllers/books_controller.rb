@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+
   def new
     @book = Book.new
   end
@@ -19,10 +20,12 @@ class BooksController < ApplicationController
     @books = Book.all #@user.post_images　ユーザー全ての投稿が見れる場所に飛ばす。15章みて
     @users = User.all
     @user = current_user
+    @book = current_user
   end
 
   def show
     @book = Book.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def edit
