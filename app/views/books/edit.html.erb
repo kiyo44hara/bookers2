@@ -21,3 +21,11 @@
 <% end %>
 
   <!--のちにShowとBackのリンクを作る-->
+<%= link_to book_path(@book.id) do %>
+  Show
+<% end %>
+
+
+<%= link_to books_path do %>
+  Back
+<% end %>

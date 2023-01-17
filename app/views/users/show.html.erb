@@ -65,10 +65,10 @@
             <tr>
               <th>
                   <%= link_to user_path do %>
-                  <%= image_tag @user.get_profile_image(100,100) %></th>
+                  <%= image_tag book.user.get_profile_image(100,100) %></th>
                   <% end %>
               <th>
-              <%= link_to book_path(book.id) do %><!--ブックのshowに飛びたいが、何故かユーザー個人を探そうとしてる-->
+              <%= link_to book_path(book.id) do %>
                 <%= book.title %>
               <% end %>
               </th>
@@ -77,7 +77,7 @@
             </tr>
             </thead>
           <% end %>
-          
+
 
 
 
