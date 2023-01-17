@@ -12,21 +12,8 @@
       </header>
 
       <main>
-        <p id="notice"></p>
-
-        <div class="container px-5 px-sm-0">
-          <div class="row">
-            <!--ここからテンプレート-->
-            <div class="col-md-3">
-              <h2>User info</h2>
-               <%= image_tag @user.get_profile_image(100,100) %>
-               <table class="table">
-                 <tbody>
-                   <div>name【<%= @user.name %>】</div>
-
-                   <div>introduction【<%= @user.introduction %>】</div>
-                 </tbody>
-               </table>
+        
+        <%= render 'books/list', book: @book %>
 
         <div class="row">
           <% if @user == current_user %>
@@ -49,7 +36,7 @@
 
         <!--ここまでテンプレート-->
          <div class="col-md-8 offset-md-1">
-          <h2>books(マイページ)</h2>
+          <h2>Books</h2>
           　<table class="table table-hover table-inverse">
           　 <thead>
             　 <tr>

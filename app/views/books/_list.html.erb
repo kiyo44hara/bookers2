@@ -1,10 +1,23 @@
-<% books.each do |book| %>
-<div>
-  <%= image_tag book.user.get_profile_image(100,100) %>
-  
-  <%= link_to book_path(book.id) do %>
-    <%= book.title %>
-  <% end %>
-  <p>Opinion <%= book.body %></p>
-</div>
-<% end %>
+
+
+
+      <p id="notice"></p>
+
+        <div class="container px-5 px-sm-0">
+          <div class="row">
+            <div class="col-md-3">
+              <h2>User info</h2>
+               <%= image_tag @user.get_profile_image(100,100) %>
+               <table class="table">
+                 <tbody>
+                   <div>name【<%= @user.name %>】</div>
+
+                   <div>introduction【<%= @user.introduction %>】</div>
+                 </tbody>
+               </table>
+
+        <div class="row">
+          <% if @user == current_user %>
+            <%= link_to "edit", edit_user_path(@user) %>
+          <% end %>
+        </div>

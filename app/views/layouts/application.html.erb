@@ -48,8 +48,13 @@
       </li>
       
       <li>
+        <%= link_to 'about', "homes/about" %>
+      </li>
+      
+      <li>
         <%= link_to "Sign up", new_user_registration_path %>
       </li>
+      
       <li>
         <%= link_to "Log in", new_user_session_path %>
       </li>
@@ -58,6 +63,21 @@
       </div>
       </nav>
     </header>
+    
+   
+    
     <%= yield %>
+     
+     
+     
+     <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
