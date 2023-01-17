@@ -39,13 +39,13 @@
                </table>
 
         <div class="row">
-          <% if @user == current_user %>
-            <%= link_to "edit", edit_user_path(@user) %> <!--後で画像でリンクつなげる-->
-          <% end %>
+          
+            <i class="fas fa-wrench"></i><%= link_to "edit", edit_user_path(@user) %><i class="fas fa-user-cog"></i> <!--後で画像でリンクつなげる-->
+          
         </div>
 
 
-       <h2 class="mt-3">New Book</h2>
+       <h2 class="mt-3">New book</h2>
         <%= form_with model: @book do |f| %>
 
            <p>Title</p>

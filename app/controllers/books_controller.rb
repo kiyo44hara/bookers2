@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :is_matching_login_user, only: [:edit, :update, :destroy]
 
   def new
     @book = Book.new
@@ -16,8 +17,8 @@ class BooksController < ApplicationController
     render :index
     end
   end
-  
-  
+
+
   def index
     @book = Book.new
     @books = Book.all #@user.post_images　ユーザー全ての投稿が見れる場所に飛ばす。15章みて
@@ -31,12 +32,10 @@ class BooksController < ApplicationController
   end
 
   def edit
-    is_matching_login_user
     @book = Book.find(params[:id])
   end
 
   def update
-    is_matching_login_user
     @book = Book.find(params[:id])
     if @book.update(book_params)
     flash[:notice] = "You have updated book successfully"
@@ -47,7 +46,6 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    is_matching_login_user
     @book = Book.find(params[:id])
     @book.destroy
     redirect_to books_path
@@ -63,7 +61,7 @@ class BooksController < ApplicationController
     book = Book.find(params[:id])
     user_id = book.user_id
     unless user_id == current_user.id
-      redirect_to books_path
+      redirect_to book.user
     end
   end
 

@@ -12,11 +12,30 @@
       </header>
 
       <main>
+        <p id="notice"></p>
         
-        <%= render 'books/list', book: @book %>
+        <div class="container px-5 px-sm-0">
+          <div class="row">
+            <!--ここからテンプレート-->
+            <div class="col-md-3">
+              <h2>User info</h2>
+               <%= image_tag @user.get_profile_image(100,100) %>
+               <table class="table">
+                 <tbody>
+                   <div>name【<%= @user.name %>】</div>
+
+                   <div>introduction【<%= @user.introduction %>】</div>
+                 </tbody>
+               </table>
+
+        <div class="row">
+          <% if @user == current_user %>
+            <i class="fas fa-wrench"></i><%= link_to "edit", edit_user_path(@user) %><i class="fas fa-user-cog"></i></i> <!--後で画像でリンクつなげる-->
+          <% end %>
+        </div>
 
 
-       <h2 class="mt-3">New Book</h2>
+       <h2 class="mt-3">New book</h2>
         <%= form_with model: @book do |f| %>
 
            <p>Title</p>
