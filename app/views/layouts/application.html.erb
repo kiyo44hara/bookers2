@@ -11,12 +11,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
 
 
   <body>
     <header>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <nav class="navbar navbar-expand-lg navbar-darkbg-dark">
         <div class="container">
           <a class="navbar-brand" href="https://837ac31add5d4b5bb97825537b1ce173.vfs.cloud9.ap-northeast-1.amazonaws.com/">
@@ -48,7 +48,7 @@
       </li>
 
       <li>
-        <i class="fas fa-link"></i><%= link_to 'About', "home/about" %>
+        <i class="fas fa-link"></i><%= link_to 'About', about_path %>
       </li>
 
       <li>
